@@ -1,0 +1,41 @@
+<html>
+<body>
+<button id="btn2" onclick="show()">Show</button>
+<script type="text/javascript">
+	function show(){
+		var btn = document.createElement("BUTTON");
+			btn.setAttribute("id", "btn1");
+			btn.innerHTML = "Hit me !";
+		document.getElementById("btn2");
+		document.body.insertBefore(btn, btn2);
+		//Pass the name you want to reload 
+		loadJs('all.js');
+	}
+</script>
+<script type="text/javascript" src="all.js"></script>
+
+
+<script type="text/javascript">
+	
+	
+	 function loadJs(js)
+	   {	
+	   		//selecting js file
+	      	var jsSection = document.querySelector('script[src="'+js+'"]');
+
+	      	//selecting parent node to remove js and add new js 
+	      	var parent = jsSection.parentElement;
+	      	//deleting js file
+	      	parent.removeChild(jsSection);
+
+	      	//creating new js file 
+	      	var script= document.createElement('script');
+	      	script.type= 'text/javascript';
+	      	script.src= js;
+
+	      	//adding new file in selected tag.
+	      	parent.appendChild(script);
+	   }
+</script>
+</body>
+</html>
